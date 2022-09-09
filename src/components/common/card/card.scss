@@ -1,0 +1,68 @@
+.card {
+    margin: 16px;
+    border-radius: 8px;
+    width: 360px;
+    height: 200px;
+    background-color: black;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    cursor: pointer;
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0px 16px;
+
+        img {
+            height: 24px;
+            border-radius: 32px;
+            transition: 0.3s;
+            padding: 0px 12px;
+            cursor: pointer;
+            margin-top: 4px;
+
+            &:hover {
+               background-color: dimgray;     
+            }
+        }
+    }
+
+    h2, span {
+        color: white;
+    }
+
+    h2 {
+        margin: 8px 0px;
+    }
+
+    span {
+        margin: 0px 16px;
+    }
+
+    hr {
+        margin: 8px 16px;
+        background-color: white;
+    }
+
+    .content {
+        margin: 16px;
+        font-family: 'Montserrat', sans-serif;
+        background-color: black;
+        font-size: 14px;
+        display: flex;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 96px;
+    }
+
+    p {
+        height: auto;
+        width: 100%;
+        color: white;
+        margin: 0px;
+    }
+
+}

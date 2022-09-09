@@ -1,0 +1,36 @@
+button {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 32px;
+    outline: none;
+    border-color: white;
+    border-width: 1px;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    padding: 4px 6px;
+    margin: 16px 0px;
+    width: auto;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: dimgrey;
+    }
+}
+
+.no-button-icon {
+    justify-content: center;
+}
+
+.button-icon-right {
+    height: 24px;
+    margin-right: 16px;
+}
+
+.button-icon-left {
+    height: 24px;
+    width: 24px;
+    margin-left: 16px;
+}

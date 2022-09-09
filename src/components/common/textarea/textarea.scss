@@ -1,0 +1,11 @@
+textarea {
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    resize: none;
+
+    &::placeholder {
+        color: white;
+    }
+}
