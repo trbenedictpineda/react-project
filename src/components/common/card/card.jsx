@@ -1,9 +1,9 @@
 import { OptionsIcon } from "../../../assets/icons";
 import "./card.scss"
 
-const Card = ({ title = "", date, content }) => {
+const Card = ({ title = "", date, content, onClick }) => {
 
-   return <div className="card">
+   return <div className="card" onClick={onClick}>
       <div>
          <div className="card-header">
          <h2>{title}</h2>
