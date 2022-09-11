@@ -3,12 +3,11 @@ import "./edit-note.scss"
 
 const EditNote = ({onClose, isOpen = false, ...data}) => {
 
-    return <>
-        <Modal onClose={onClose} isOpen={isOpen} >
+    return <Modal modalTitle="Title" date="mm/dd/yyyy" onClose={onClose} isOpen={isOpen} >
             <TextArea />
-            <Button />
+            <Button text="Update" />
         </Modal>
-    </>
+    
 }
 
 export default EditNote;

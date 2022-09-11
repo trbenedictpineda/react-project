@@ -4,6 +4,7 @@ textarea {
     background-color: transparent;
     color: white;
     resize: none;
+    border: none;
 
     &::placeholder {
         color: white;

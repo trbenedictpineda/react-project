@@ -3,7 +3,7 @@ import "./card.scss"
 
 const Card = ({ title = "", date, content, onClick }) => {
 
-   return <div className="card" onClick={onClick}>
+   return <div className="card">
       <div>
          <div className="card-header">
          <h2>{title}</h2>
@@ -12,7 +12,7 @@ const Card = ({ title = "", date, content, onClick }) => {
          <span>{date}</span>
       </div>
       <hr />
-      <div className="content">
+      <div className="content" onClick={onClick}>
          <p>
             {content}
          </p>

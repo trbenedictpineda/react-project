@@ -25,8 +25,8 @@ const NotesList = () => {
     return <>
         <Button text="Sort By" suffixIcon={DownIcon} />
         <Grid
-            columnCount={width > 760 ? 3 : 1}
-            columnWidth={width > 760 ? width / 3 : width / 1}
+            columnCount={width > 768 ? 3 : 1}
+            columnWidth={width > 768 ? (width - 40) / 3 : (width - 40) / 1}
             height={400}
             rowCount={10}
             rowHeight={240}
