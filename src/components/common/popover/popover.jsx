@@ -1,4 +1,5 @@
 import "./popover.scss";
+import ReactModal from "react-modal";
 
 const Popover = ({ isOpen = false, children, onClose }) => {
 

@@ -1,7 +1,7 @@
 import "./delete-note.scss";
 import { DeleteIcon } from "../../../assets/icons";
 
-const DeleteNote = ({}) => {
+const DeleteNote = () => {
 
     return <>
         <div className="delete-option">

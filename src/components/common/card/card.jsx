@@ -3,7 +3,7 @@ import { OptionsIcon } from "../../../assets/icons";
 import Popover from "../popover/popover";
 import "./card.scss"
 
-const Card = ({ title = "", date, content, onClick, optionsContent }) => {
+const Card = ({ title = "", date, content, onClick, optionsContent, }) => {
 
    const [isOpen, setIsOpen] = useState(false)
 
@@ -20,7 +20,7 @@ const Card = ({ title = "", date, content, onClick, optionsContent }) => {
          <div>
             <div className="card-header">
                <h2>{title}</h2>
-               <img alt="Options Icon" src={OptionsIcon} onClick={openOptions}/>
+               <img alt="Options Icon" src={OptionsIcon} onClick={openOptions} />
             </div>
             <span>{date}</span>
          </div>
