@@ -5,7 +5,7 @@ const EditNote = ({onClose, isOpen = false, ...data}) => {
 
     return <Modal modalTitle="Title" date="mm/dd/yyyy" onClose={onClose} isOpen={isOpen} >
             <TextArea />
-            <Button text="Update" />
+            <Button text="Update" className="update-button" />
         </Modal>
     
 }

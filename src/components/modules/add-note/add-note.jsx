@@ -16,7 +16,7 @@ const AddNote = () => {
     }
 
     return <>
-        <Button text="Add" prefixIcon={AddIcon} onClick={openModal} type="button" />
+        <Button text="Add" prefixIcon={AddIcon} onClick={openModal} type="button" className="open-add-note-button" />
         <Modal modalTitle="Title" onClose={closeModal} isOpen={isOpen} date="mm/dd/yyyy">
             <TextArea placeholder="Enter text here..." className="add-note-textarea" />
             <Button text="Add Note" className="add-note-button" />

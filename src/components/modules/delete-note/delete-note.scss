@@ -1,0 +1,18 @@
+.delete-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px;
+
+    &:hover {
+        background-color: rgba(248, 248, 255, 0.445);
+    }
+}
+
+.delete-icon {
+    height: 24px;
+}

@@ -23,7 +23,7 @@ const NotesList = () => {
     );
 
     return <>
-        <Button text="Sort By" suffixIcon={DownIcon} />
+        <Button text="Sort By" suffixIcon={DownIcon} className="sort-by-button" />
         <Grid
             columnCount={width > 768 ? 3 : 1}
             columnWidth={width > 768 ? (width - 40) / 3 : (width - 40) / 1}
