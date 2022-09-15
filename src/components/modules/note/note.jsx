@@ -4,9 +4,9 @@ import EditNote from "../edit-note/edit-note";
 import DeleteNote from "../delete-note/delete-note";
 import "./note.scss";
 
-const Note = ({ ...data }) => {
+const Note = ({ reloadList, ...data }) => {
     
-    const { note_title, note_date, note_content } = data
+    const { note_title, note_date, note_content, note_id } = data
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -24,7 +24,7 @@ const Note = ({ ...data }) => {
             date={note_date}
             onClick={openModal}
             content={note_content}
-            optionsContent={<DeleteNote />}
+            optionsContent={<DeleteNote noteId={note_id} reloadList={reloadList} />}
         />
         <EditNote onClose={closeModal} isOpen={isOpen} {...data} />
     </>

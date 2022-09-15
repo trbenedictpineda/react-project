@@ -5,6 +5,7 @@ import { DownIcon } from "../../../assets/icons";
 import { useState, useEffect } from 'react'
 import Note from "../note/note";
 import { useApi } from "../../../hooks";
+import AddNote from "../add-note/add-note";
 
 const NotesList = () => {
 
@@ -37,6 +38,7 @@ const NotesList = () => {
 
 
     return <>
+        <AddNote reloadList={sendRequest} />
         <Button text="Sort By" suffixIcon={DownIcon} className="sort-by-button" />
         {!isLoading && <Grid
             columnCount={1}
@@ -51,7 +53,7 @@ const NotesList = () => {
             {({ data, style, rowIndex, }) => {
                 return (
                     <div className="cell" style={style}>
-                        <Note {...data[rowIndex]} />
+                        <Note {...data[rowIndex]}  />
                     </div>
                 )
             }}

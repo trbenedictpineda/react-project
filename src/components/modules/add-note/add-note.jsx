@@ -36,6 +36,7 @@ const AddNote = ({reloadList = () => {}}) => {
         event.preventDefault()
         try {
             sendRequest()
+            reloadList()
         } catch (error) {
             console.error(error)
         }
