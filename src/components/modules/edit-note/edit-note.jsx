@@ -3,7 +3,7 @@ import "./edit-note.scss"
 import { useState } from "react";
 import { useApi } from "../../../hooks";
 
-const EditNote = ({ onClose, isOpen = false, ...data }) => {
+const EditNote = ({ onClose, isOpen = false, reloadList, ...data }) => {
 
     const { note_title, note_date, note_content, note_id } = data
 
@@ -11,10 +11,10 @@ const EditNote = ({ onClose, isOpen = false, ...data }) => {
     const [content, setContent] = useState(note_content)
 
     const { sendRequest } = useApi(`http://localhost:5000/note/update-note/${note_id}`, "PUT",
-    {
-        title,
-        content,
-    })
+        {
+            title,
+            content,
+        })
 
     const handleTitle = (event) => {
         setTitle(event.target.value)
@@ -24,11 +24,12 @@ const EditNote = ({ onClose, isOpen = false, ...data }) => {
         setContent(event.target.value)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            sendRequest()
-            //reloadList()
+            await sendRequest()
+            reloadList()
+            onClose()
         } catch (error) {
             console.error(error)
         }
@@ -36,7 +37,8 @@ const EditNote = ({ onClose, isOpen = false, ...data }) => {
 
     return <Modal
         modalTitle={<Input value={title} onChange={handleTitle} />}
-        date={note_date} onClose={onClose}
+        date={note_date}
+        onClose={onClose}
         isOpen={isOpen} >
         <TextArea value={content} onChange={handleContent} />
         <Button text="Update" className="update-button" onClick={handleSubmit} />

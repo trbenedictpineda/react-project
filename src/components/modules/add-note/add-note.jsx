@@ -32,11 +32,12 @@ const AddNote = ({reloadList = () => {}}) => {
         setContent(event.target.value)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            sendRequest()
+            await sendRequest()
             reloadList()
+            closeModal()
         } catch (error) {
             console.error(error)
         }

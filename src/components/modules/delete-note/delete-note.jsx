@@ -6,10 +6,10 @@ const DeleteNote = ({reloadList = () => {}, noteId}) => {
 
     const { sendRequest } = useApi(`http://localhost:5000/note/delete-note/${noteId}`, "DELETE")
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            sendRequest()
+            await sendRequest()
             reloadList()
         } catch (error) {
             console.error(error)

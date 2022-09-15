@@ -1,7 +1,6 @@
 import "./notes-list.scss"
 import { FixedSizeGrid as Grid } from 'react-window';
-import { Button } from "../../common";
-import { DownIcon } from "../../../assets/icons";
+import { Loader } from "../../common";
 import { useState, useEffect } from 'react'
 import Note from "../note/note";
 import { useApi } from "../../../hooks";
@@ -25,7 +24,7 @@ const NotesList = () => {
 
     useEffect(() => {
         sendRequest()
-    },[sendRequest])
+    }, [sendRequest])
 
     useEffect(() => {
         if (!isLoading) {
@@ -39,21 +38,23 @@ const NotesList = () => {
 
     return <>
         <AddNote reloadList={sendRequest} />
-        <Button text="Sort By" suffixIcon={DownIcon} className="sort-by-button" />
-        {!isLoading && <Grid
-            columnCount={1}
+        {isLoading ? <Loader /> : <Grid
+            columnCount={width > 768 ? 3 : 1}
             columnWidth={width > 768 ? (width - 40) / 3 : (width - 40) / 1}
             height={400}
-            rowCount={notesList.length}
+            rowCount={Math.ceil(notesList.length / 3)}
             rowHeight={240}
             width={width}
             className="grid-container"
             itemData={notesList}
         >
-            {({ data, style, rowIndex, }) => {
+            {({ data, style, rowIndex, columnIndex }) => {
+
                 return (
                     <div className="cell" style={style}>
-                        <Note {...data[rowIndex]}  />
+                        <Note
+                            reloadList={sendRequest}
+                            {...data[width > 768 ? (rowIndex * 3 + columnIndex) : rowIndex]} />
                     </div>
                 )
             }}

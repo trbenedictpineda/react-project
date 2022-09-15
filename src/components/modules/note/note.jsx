@@ -5,7 +5,7 @@ import DeleteNote from "../delete-note/delete-note";
 import "./note.scss";
 
 const Note = ({ reloadList, ...data }) => {
-    
+
     const { note_title, note_date, note_content, note_id } = data
 
     const [isOpen, setIsOpen] = useState(false)
@@ -18,15 +18,23 @@ const Note = ({ reloadList, ...data }) => {
         setIsOpen(false)
     }
 
-    return <>
+    return note_id && <>
         <Card
             title={note_title}
             date={note_date}
             onClick={openModal}
             content={note_content}
-            optionsContent={<DeleteNote noteId={note_id} reloadList={reloadList} />}
+            optionsContent={<DeleteNote
+                noteId={note_id}
+                reloadList={reloadList}
+
+            />}
         />
-        <EditNote onClose={closeModal} isOpen={isOpen} {...data} />
+        <EditNote
+            onClose={closeModal}
+            isOpen={isOpen}
+            reloadList={reloadList}
+            {...data} />
     </>
 }
 
