@@ -1,0 +1,13 @@
+input {
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    resize: none;
+    font-size: large;
+    border: none;
+
+    &::placeholder {
+        color: white;
+    }
+}

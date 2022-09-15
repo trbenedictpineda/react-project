@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 const useApi = (url, method, body) => {
 
@@ -7,38 +7,30 @@ const useApi = (url, method, body) => {
     const [responseData, setResponseData] = useState()
     const [responseError, setResponseError] = useState()
 
-    useEffect(() => {
+    const sendRequest = useCallback(async () => {
         setIsLoading(true)
         try {
-            const fetchData = async () => {
-                const response = await fetch(url,
-                    {
-                        method: method,
-                        body: JSON.stringify(body),
-                        headers: {
-                            'Content-type': 'application/json; charset=UTF-8',
-                        }
-                    })
-                if (response.status < 200 || response.status > 299) {
-                    throw response
-                }
-                const data = await response.json()
-                setResponseData(data)
-                setIsLoading(false)
+            const response = await fetch(url,
+                {
+                    method: method,
+                    body: JSON.stringify(body),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    }
+                })
+            const data = await response.json()    
+            if (!response.ok) {
+                throw data
             }
-
-            fetchData()
-        } catch (error) {
-            setResponseError(error)
+            setResponseData(data)
             setIsLoading(false)
-        }
-
-        return () => {
+        } catch (error) {
+            setResponseError(error.message)
             setIsLoading(false)
         }
     }, [body, method, url])
 
-    return { isLoading, responseData, responseError }
+    return { isLoading, responseData, responseError, sendRequest }
 }
 
 export default useApi;

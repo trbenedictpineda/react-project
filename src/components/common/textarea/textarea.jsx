@@ -1,10 +1,11 @@
 import "./textarea.scss"
 
-const TextArea = ({ className = "", placeholder = "", content }) => {
+const TextArea = ({ className = "", placeholder = "", content, onChange }) => {
 
     return <textarea
-        className={`${className}`}
+        className={className}
         placeholder={placeholder}
+        onChange={onChange}
     >
         {content}
     </textarea>

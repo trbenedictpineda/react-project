@@ -12,7 +12,7 @@ const NotesList = () => {
 
     const [notesList, setNotesList] = useState([])
 
-    const { responseData, isLoading } = useApi("http://localhost:5000/note")
+    const { responseData, isLoading, sendRequest } = useApi("http://localhost:5000/note")
 
     useEffect(() => {
         const handleResize = () => {
@@ -21,6 +21,10 @@ const NotesList = () => {
         window.addEventListener("resize", handleResize)
         return () => { window.removeEventListener("resize", handleResize) }
     }, [])
+
+    useEffect(() => {
+        sendRequest()
+    },[sendRequest])
 
     useEffect(() => {
         if (!isLoading) {
