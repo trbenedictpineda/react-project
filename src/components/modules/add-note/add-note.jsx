@@ -4,7 +4,7 @@ import { AddIcon } from "../../../assets/icons";
 import "./add-note.scss"
 import useApi from "../../../hooks/useApi";
 
-const AddNote = ({reloadList = () => {}}) => {
+const AddNote = ({ reloadList = () => { } }) => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [title, setTitle] = useState()
@@ -52,11 +52,21 @@ const AddNote = ({reloadList = () => {}}) => {
             className="open-add-note-button"
         />
         <Modal
-            modalTitle={<Input placeholder="Enter title here..." onChange={handleTitle} />}
+            modalTitle={<Input
+                placeholder="Enter title here..."
+                onChange={handleTitle}
+                className="modal-title" />}
             onClose={closeModal}
             isOpen={isOpen}>
-            <TextArea placeholder="Enter text here..." className="add-note-textarea" onChange={handleContent} />
-            <Button text="Add Note" type="submit" className="add-note-button" onClick={handleSubmit} />
+            <TextArea
+                placeholder="Enter text here..."
+                className="add-note-textarea"
+                onChange={handleContent} />
+            <Button
+                text="Add Note"
+                type="submit"
+                className="add-note-button"
+                onClick={handleSubmit} />
         </Modal>
     </>
 

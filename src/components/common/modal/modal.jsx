@@ -2,7 +2,7 @@ import "./modal.scss"
 import { CloseIcon } from "../../../assets/icons";
 import ReactModal from "react-modal";
 
-const Modal = ({ children, modalTitle, onClose, isOpen = false, date }) => {
+const Modal = ({ children, modalTitle, onClose, isOpen = false, date = "" }) => {
 
     return <ReactModal
         className="modal"
@@ -15,7 +15,7 @@ const Modal = ({ children, modalTitle, onClose, isOpen = false, date }) => {
                 {modalTitle}
                 <img alt="Close Icon" src={CloseIcon} onClick={onClose} />
             </div>
-            <span>{date}</span>
+            <span>{date.replace('Z', ' ').replace('T', ' ').replace('.000', '')}</span>
         </div>
         <hr />
         <div className="modal-content">

@@ -5,6 +5,8 @@ textarea {
     color: white;
     resize: none;
     border: none;
+    overflow-y: auto;
+    width: 100%;
 
     &::placeholder {
         color: white;

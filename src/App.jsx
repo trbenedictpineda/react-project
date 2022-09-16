@@ -1,8 +1,11 @@
 import "./App.scss"
 import NotesList from "./components/modules/notes-list/notes-list";
-
+import ReactModal  from "react-modal";
 
 const App = () => {
+
+  ReactModal.setAppElement(document.getElementById('root'));
+
   return (
     <div className="App">
       <div className="header">

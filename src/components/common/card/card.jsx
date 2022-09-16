@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { OptionsIcon } from "../../../assets/icons";
 import Popover from "../popover/popover";
+import TextArea from "../textarea/textarea";
 import "./card.scss"
 
 const Card = ({ title = "", date, content, onClick, optionsContent, }) => {
@@ -26,9 +27,7 @@ const Card = ({ title = "", date, content, onClick, optionsContent, }) => {
          </div>
          <hr />
          <div className="content" onClick={onClick}>
-            <p>
-               {content}
-            </p>
+            <TextArea value={content} readOnly />
          </div>
       </div>
       <Popover isOpen={isOpen} onClose={closeOptions}>

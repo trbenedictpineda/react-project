@@ -36,11 +36,11 @@ const EditNote = ({ onClose, isOpen = false, reloadList, ...data }) => {
     }
 
     return <Modal
-        modalTitle={<Input value={title} onChange={handleTitle} />}
+        modalTitle={<Input value={title} onChange={handleTitle} className="modal-title" />}
         date={note_date}
         onClose={onClose}
         isOpen={isOpen} >
-        <TextArea value={content} onChange={handleContent} />
+        <TextArea value={content} onChange={handleContent} className="edit-note-textarea" />
         <Button text="Update" className="update-button" onClick={handleSubmit} />
     </Modal>
 

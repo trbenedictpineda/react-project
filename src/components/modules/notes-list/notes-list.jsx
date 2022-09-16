@@ -42,7 +42,7 @@ const NotesList = () => {
             columnCount={width > 768 ? 3 : 1}
             columnWidth={width > 768 ? (width - 40) / 3 : (width - 40) / 1}
             height={400}
-            rowCount={Math.ceil(notesList.length / 3)}
+            rowCount={width > 768 ? Math.ceil(notesList.length / 3) : Math.ceil(notesList.length)}
             rowHeight={240}
             width={width}
             className="grid-container"

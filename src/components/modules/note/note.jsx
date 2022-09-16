@@ -21,7 +21,7 @@ const Note = ({ reloadList, ...data }) => {
     return note_id && <>
         <Card
             title={note_title}
-            date={note_date}
+            date={note_date.replace('Z', ' ').replace('T', ' ').replace('.000', '')}
             onClick={openModal}
             content={note_content}
             optionsContent={<DeleteNote
