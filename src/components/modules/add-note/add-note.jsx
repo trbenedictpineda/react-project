@@ -21,6 +21,8 @@ const AddNote = ({ reloadList = () => { } }) => {
     }
 
     const closeModal = () => {
+        setTitle("")
+        setContent("")
         setIsOpen(false)
     }
 
@@ -55,19 +57,26 @@ const AddNote = ({ reloadList = () => { } }) => {
             modalTitle={<Input
                 placeholder="Enter title here..."
                 onChange={handleTitle}
-                className="modal-title" />}
+                className="modal-title"
+                required
+            />}
             onClose={closeModal}
-            isOpen={isOpen}>
+            isOpen={isOpen}
+            onSubmit={handleSubmit}
+            >
             <TextArea
                 placeholder="Enter text here..."
                 className="add-note-textarea"
-                onChange={handleContent} />
+                onChange={handleContent}
+                required
+            />
             <Button
                 text="Add Note"
                 type="submit"
                 className="add-note-button"
-                onClick={handleSubmit} />
+            />
         </Modal>
+
     </>
 
 }

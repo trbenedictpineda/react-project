@@ -6,7 +6,8 @@ const TextArea = ({
     content,
     onChange,
     value,
-    readOnly = false
+    readOnly = false,
+    required = false
 }) => {
 
     return <textarea
@@ -15,6 +16,7 @@ const TextArea = ({
         onChange={onChange}
         value={value}
         readOnly={readOnly}
+        required={required}
     >
         {content}
     </textarea>

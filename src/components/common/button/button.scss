@@ -15,8 +15,9 @@ button {
     display: flex;
     transition: 0.3s;
 
-    &:hover {
+    &:hover, focus {
         background-color: dimgrey;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     }
 }
 
